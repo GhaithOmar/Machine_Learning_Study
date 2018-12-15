@@ -7,6 +7,8 @@ This repository contain the following topics:
 
 2- Unsupervised machine learning models
 
+3- Deep Learning models 
+
 All the models in this repository, written in 2 forms:
 
 1- Coded from scratch with the help of "Lazyprogrammer" Courses, the github links:

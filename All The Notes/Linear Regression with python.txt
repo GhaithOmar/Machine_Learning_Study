@@ -1,0 +1,27 @@
+Gradient Descent for Linear Regression
+
+w= draw sample from N(0, 1/D)   # we can use randn to draw the initial value (from gaussian set to a 0 )
+				#variance is 1/D D is the dimensionality
+
+for t=1....T ....from 1 to T: # we assing T as much as we want it's predetermiend number ber of steps
+	w = w - learning_rate*X.T(Yhat-Y)
+
+we can stop if w droped below a predetermind thresh hold
+
+also u sit the learning_rate (learning_rate is the hyperparameter)
+
+#########################################################################
+
+for multiple linear regression
+
+w= np.linalg.solve(X.T.dot(X),X.T.dot(Y))
+yhat = X.dot(W)
+
+
+#######################################################################
+L2 Regrulization
+
+w=np.linalg.solve(X.T.dot(X)+l2*np.eye(D),X.T.dot(Y))
+D= number of dimintion or the size of the matrix
+
+

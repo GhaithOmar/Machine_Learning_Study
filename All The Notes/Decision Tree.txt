@@ -1,0 +1,78 @@
+Pseudocode
+
+#Limitations on our implementation:
+#Binary Classification
+# Only 1 split per node (therefore, each node has 0 or 2 children)
+#If node has children, it does not have prediction, and vice versa
+
+Class TreeNode:
+	self.left_node
+	self.right_node
+	self.left_prediction
+	self.right_prediction
+
+
+	def predict_one(x):
+		if self.condition(x):
+			if self.left_node:
+				return self.left_node.predict_one(x)
+			else:
+				return self.left_prediction
+		else:
+			if self.right_node:
+				return self.right_node.predict_one(x)
+			else:
+				return self.right_prediction
+
+	
+	def fit(X,Y):
+		Best_IG = 0
+		Best_atribute = None
+		for c in columns:
+			condition = find_split(X, Y, c)
+			Y_left = Y[X[c] meets condition]
+			Y_right = Y[X[c] does not meet condition]
+			if information_gain > best_IG:
+				Best_IG = information_gain
+				Best_attribute =c
+
+		#now must call fit recursively!
+		X_left, Y_lift, X_right, Y_right = split by best_attribute
+		self.left_node = TreeNode()
+		self.left_node.fit(X_left, Y_left)
+		self.right_node = TreeNode()
+		self.right_node.fit(X_right, Y_right)
+
+Base cases
+We haven't checked for these yet, but they are needed when doing recursion
+Pesudocode was just to give you a rough outline
+
+first base case:
+
+if max information gain = 0, we gain nothing from splitting , make this a leaf node
+
+predict most likely class(i.e. if a majority of labels in our subset of data is 1, predict 1)
+
+More base cases
+
+# we want to avoid overfitting
+# we can easily achieve 100% on training set by having a tree of arbitrary depth
+# but may not lead to good generalization
+# so we set a max_depth
+# when we hit max_depth, stop recursing, make  a leaf node
+# means every treenode must know it's own depth, and max_depth
+
+#Last 2 are trivial
+# if there is only 1 sample in this data subset, predict that sample's label
+# if we have >1 sample, but they all have the same label, predict this label
+
+Algorithm for finding the best split
+#Sort X's for current column in order, sort Y in the corresponding way
+# Find all the boundary points where Y changes from one value to another 
+# calculate information gain when splitting at each boundary  (from one class to another)
+# Keep the split which gives the max information gain
+
+#Final note
+# Our code is not optimized
+# Very slow
+# python for loops are very slow

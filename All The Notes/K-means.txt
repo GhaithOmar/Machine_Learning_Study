@@ -1,0 +1,17 @@
+1- Choose the number k of clusters
+2- Select at random k points, the centroids (not necessarily from your dataset)
+3- Assign each data point to the closest centroid --> that forms K clusters
+4- Compute and place the new centroid of each cluster 
+5- Reassign each data point to the new closest centroid if any
+reassignment took place, got to step4, otherwise got fin 
+
+fin ---> your model is ready
+
+
+choosing the right number of clusters
+
+
+WCSS =  sum(distance(pi, c1)^2) + sum(distance(pi,c2)^2)+ ...+sum(distance(pi,cn))
+
+pi point in each cluster
+C is the centroid related for to each cluster

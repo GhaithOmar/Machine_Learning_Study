@@ -1,0 +1,11 @@
+1 nearest neighbors sample
+def predict(x0):
+	closest_distance = inf, closest_class = -1 
+	for x ,y in training_data:
+		d = dist(x,x0)
+		if d < closest_distance:
+			closest_distance = d, closest_class = y 
+	return closest_class
+
+
+from sortedcontainers import SortedList

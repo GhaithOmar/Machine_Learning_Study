@@ -1,0 +1,50 @@
+Alogrithm
+
+Training part:
+models = [] 
+for b = 1....b:
+	model = Model()
+	Xb, Yb = resample(X)
+	model.fit(Xb,Yb)
+	models.append(model)
+
+Prediction part:
+#average if regression, vote if classification
+
+#regression
+
+def predict(X):
+	return np.mean([model.predict(X) for model in models], axis=1)
+
+#Classification is harder b/c we need to collect the votes. if classifier return
+# class probabilities we can  just use averaging
+
+classification (Naive)
+
+def predict_one(x):
+	votes = {}
+	for model in models:
+	k = model.predict(x)
+	votes[k] ++ 
+	argmax = 0 # don't sort, that's O(NlogN)
+	for k, v in votes.items():
+		if v> argmax:
+			argmax=k
+	return k
+
+#classification another option
+
+def predict(X):
+	output = np.zeros((N,k))
+	for model in models:
+		output[np.arange(N), model.predict(X)] +=1
+	return output.argmax(axis=1)
+
+
+#Classification (Binary)
+
+def predict(X):
+	output = np.zeros(N)
+	for model in models:
+		output += models.predict(X)
+	return np.round(output / B)

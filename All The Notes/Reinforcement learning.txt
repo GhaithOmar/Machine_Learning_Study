@@ -1,0 +1,15 @@
+Upper confidenece bound
+
+
+
+Thompson Sampling:
+
+step 1: at each round n, we consider 2 numbers for each ad i:
+
+#Ni1(n) - the number of times the ad i got reward 1 up to round n 
+#Ni0(n) - the number of times the ad i got reward 0 up to round n 
+
+step 2: For each ad i, we take a random draw from the distribution below:
+	Thetai(n) = Beta(Ni1(n) + 1 ,Ni0(n)+1)
+
+step 3: We select the ad theat has the highest Thetai(n)

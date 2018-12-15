@@ -1,0 +1,21 @@
+algorithm for random forest training:
+
+for b = 1..B:
+	Xb, Yb = sample_with_replacement(X, Y)
+	model = DeisionTree()
+	while not at terminal node and not reached max_depth:
+		select d features randomly 
+		choose best split from the d features(i.e. max.information gain)
+		add split to model
+		model.append()
+
+#just like bagging, we need to get bootstrap sample
+# sometimes Random forest is called "feature bagging"
+# these are not ensembles of vanilla decision trees
+# why
+# we have changed how they make splits
+# so you can't build a random forest using built-in decision tree class
+
+Random forest prediction 
+
+is like a bagging prediction

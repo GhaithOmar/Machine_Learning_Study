@@ -1,0 +1,28 @@
+People who bought this also bought that
+
+e.g in movie Recommendation
+step1 calculate the support
+support(M) = #user watchlists containing M / #user watchlists
+
+step2 confidence
+
+confidence(M1 -->M2) = # user watchlists containing M1 and M2/ # user watchlists containing M1
+
+step3 lift 
+
+lift(M1 --> M2) = Confidence(M1-->M2) / support(M2)
+
+
+Apriori - Algorithm
+
+1- Set a minimum support and confidence 
+2- Take all the subsets in transactions having higher support than minimum support
+3- Take all the rules of these subsets having higher confidence than minimum confidence
+4- Sort the rules by decreasing lift 
+
+The rule with highest left is the stronger 
+
+Aproir expect a list of lists with all values as strings
+
+
+

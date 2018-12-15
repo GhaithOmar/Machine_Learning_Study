@@ -1,0 +1,16 @@
+PCA 
+
+From the m independent variables of your dataset, PCA extracts p <= m new
+independent variables that explain the most the variance of the dataset, 
+regardless of the dependent variable.
+
+The fact that the DV is not considered makes PCA an unsupervised model
+
+
+LDA 
+
+from the n independent variables of your dataset, LDA extracts p <= n new 
+independent variables that separatethe most the classes of the dependent variable.
+
+The fact that the DV is considered makes LDA a supervised model 
+

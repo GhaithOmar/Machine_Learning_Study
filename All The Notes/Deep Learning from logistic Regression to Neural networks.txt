@@ -1,0 +1,26 @@
+Note:
+the np.argmax tell us the location of the biggest value
+
+
+Vector nation 
+numpy operations are more efficient than python for loops 
+
+zj = sigmoid(sum(Wij*Xi) +bj) --> zj = sigmoid(Wj.T.dot(x)+bj) 
+z = sigmoid(W.T.dot(x)+b)
+
+
+P(y|x)= sigmoid(sum(Vj*zj)+c) --> P(y|x) = sigmoid(V.T.dot(z) + c)
+
+X: is a D-dimensional vector 
+z: is a M-dimensional vector 
+
+#We usually want to consider more than one sample at a time
+
+#X is an NxD matrix (N=number of samples)
+#Z is an NxM matrix 
+#P(Y|X) (sometimes just called'Y') is an Nx1 matrix (for binary classification)
+(for K classes, it will be NxK)
+#W is DxM, b is Mx1, v is Mx1, c is scalar (1x1)
+
+Z= sigmoid(XW+b)
+Y= sigmoid(Zv+c)

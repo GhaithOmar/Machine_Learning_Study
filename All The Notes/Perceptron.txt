@@ -1,0 +1,11 @@
+Pseudocode:
+
+w= random vector (b=0)
+
+for epoch in range(max_epochs):
+	get all currently misclassified examples
+	if no misclassified examples ---> break
+	x,y = randomly select one misclassified example
+	w = w + eta * y* x #eta = 1.0,0.1,0.001, etc
+#eta is  a learning rate
+ 

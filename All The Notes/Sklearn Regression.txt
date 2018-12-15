@@ -1,0 +1,114 @@
+To use the Linear regression model in sklearn
+
+from sklearn.linear_model import LinearRegression
+
+lr = LinearRegression()
+lr.fit(X_train,Y_train)
+
+y_hat = lt.predict(X_test)
+
+#this is for simple and multilple linear regression 
+
+
+#To solve the polynomial Regression 
+
+you should first turn it into 
+w0 + w1*x1 + w2*(x2**2) + wn*(xn**n) 
+
+now this you can do it manually or use sklearn
+
+from sklearn.preprocessing import PolyonmialFearures 
+
+#this model will change X to any degree you want following the above equation
+
+poly_reg = PolynomialFeatures(degree=2) 
+
+#degree is the power u want ur x to be
+
+
+X_poly = poly_reg.fit_transform(X)
+
+#this will create a new matrix that had the first columns is 1 and the second
+#is X and the third is x**2
+
+
+#After you create the X_poly you can use the normal linear regression model
+#or equation as multiple linear regression
+
+
+yhat = lr.predict(poly_reg.fit_transform(X))
+
+# we use it inside the predict to make sure the poly regression will fit any X
+#we got thats why we don't use X_poly
+#X_poly only used to train the model 
+
+
+#################################################################################	
+					SVR
+#################################################################################	
+
+#note need feature scalling 
+
+from sklearn.svm import SVR
+
+reg = SVR(kernel='rbf' )  #kernel is the kernel function
+#'rbf' kernel if the gaussian kernel
+
+reg.fit(X,Y)
+
+yhat = reg.predict(X) or a value as an array np.array([[6.5]])
+
+#######
+Note:
+to reverse the feature scalling after prediction 
+e.g
+y_hat = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]]))))
+
+we use sc_y.inverse_transform()
+#####################
+
+feature scalling in sklearn
+
+
+
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+sc_y = StandardScaler()
+X = sc_X.fit_transform(X)
+Y = sc_y.fit_transform(Y)
+Y = Y.ravel()
+
+
+###########################################################################
+
+			Decision Tree Regression 	
+
+###########################################################################
+
+from sklearn.tree import DecisionTreeRegressor
+
+reg = DecisionTreeRegressor(random_state= 0)
+reg.fit(X,Y)
+
+yhat = reg.predict(6.5)
+
+
+###########################################################################
+
+			Random Forset Tree 	
+
+###########################################################################
+
+
+from sklearn.ensemble import RandomForestRegressor
+
+reg = RandomForestRegressor(n_estimators = 300,random_state = 0)
+reg.fit(X,Y)
+
+yhat = reg.predict(6.5)
+#######################################################################
+to add a column of ones
+
+X = np.append(arr=np.ones((50,1)).astype(int), values = X, axis=1)
+
+

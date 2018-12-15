@@ -1,0 +1,59 @@
+scores = []
+sz = N/K
+
+for in range(K):
+	Xvalid, Yvalid = X[i * sz: (i+1)*sz], Y[ i*sz: (i+1)*sz]
+	Xtrain, Ytrain = concat(X[0 : i*sz], X[(i+1)*sz:N), concat(Y[0 : i*sz], Y[(i+1)*sz:N])
+	model.fit(Xtrain, Ytrain)
+	score.append(mode.score(Xvalid, Yvalid))
+	return scores
+
+
+#this algorithm
+# return K different scores (accuracies)
+# can simply use the mean
+# can also use statistical testing to check if one hyperparameter setting
+# is "statistically significantly" better than another
+
+Note Sklearn has it's own cross_valiidation library u can use
+
+from sklearn import corss_validation 
+scores = cross_validation.cross_val_score(model, X, Y. cv=K)
+
+
+
+# Applying k-fold Cross Validation 
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator=classifier, X=X_train, y=y_train,cv=10) 
+#it will contain 10 accuracies to evaluate our models 
+#cv is the number of fold you wana split your training set into
+print(accuracies)
+
+
+
+#Applying Grid search to find the best model and the best parameters
+from sklearn.model_selection import GridSearchCV
+#Parametes variable well hold the parameters we want to adjust 
+#you take the hyperparameter you want to adjust
+parameters = [{
+				'C':[1,10,100,1000],
+				'kernel': ['linear']
+				},
+			  {
+				'C':[1,5,0.5],
+				'kernel': ['rbf'],
+				'gamma': [0.5,0.1,0.2,0.3,0.4,0.6,0.7]
+				}]
+grid_search = GridSearchCV(estimator=classifier,
+						   param_grid= parameters,
+						   scoring = 'accuracy',
+						   cv = 10,
+						   #n_jobs = -1
+						   )
+grid_search= grid_search.fit(X_train,y_train)
+best_accuracy = grid_search.best_score_
+best_parameters = grid_search.best_params_
+print(best_accuracy)
+print(best_parameters)
+
+#estimator: is our machine learning model

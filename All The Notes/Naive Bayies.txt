@@ -1,0 +1,26 @@
+it only for illustration 
+
+def fit(X,Y):
+	dict_of_gaussoans = {}
+	priors = {}
+	for cin classes:
+		Xc = X[corresponding Y==c]
+		mu,var = mean and diagonal covariance of Xc
+		dict_of_gaussians[c] = {'mu':mu,'var':var}
+		priors[c] = len(Xc)/len(X)
+
+#Mean and covariance are all we need to represent the Gaussian
+(called "sufficient statistics "
+
+
+def predict(X):
+	predictions = [], max_posterior = -inf, best_class = None
+	for x in X:
+		for c in classes:
+			mu,var = dict_of_gaussians[c]
+			posterior = log_pdf(x,mu,var) + log(priors[c])
+			if posterior > max_posterior:
+				max_posterior = posterior
+				best_class = c 
+			predictions.append(best_class
+	return predictions

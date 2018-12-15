@@ -27,7 +27,7 @@ Notes:
 
 4- Most of the codes include descreption for how to use the  models in general:
 
-a- initate the model 
+a- initiate the model 
 
 b- model.fit(X_train,y_train)
 

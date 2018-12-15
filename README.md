@@ -23,3 +23,12 @@ Notes:
 2- The codes wrote from the scratch is represent how i applied the theroy using numpy, scipy with the help of the guidence
           from the courses i studied.
     
+3- All the codes is written in python 3.6
+
+4- Most of the codes include descreption for how to use the  models in general:
+
+a- initate the model 
+
+b- model.fit(X_train,y_train)
+
+c- model.predict(X_test)
